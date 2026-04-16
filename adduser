@@ -19,3 +19,5 @@ echo "$imie, $wiek, $zgoda";
 $sql = "INSERT INTO users VALUES (NULL, '$imie', $wiek, $zgoda)";
 
 mysqli_query($polaczenie, $sql);
+
+header("Location: index.php");
