@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <ol>
     <?php
     $polaczenie = mysqli_connect("localhost", "root", "", "xdxd");
 
@@ -16,9 +17,10 @@
     while($wiersz = mysqli_fetch_assoc($wynik)){
         $imie = $wiersz['imie'];
 
-        echo "<h2>$imie</h2>";
+        echo "<li><h2>$imie</h2></li>";
     }
     ?>
+    </ol>
 
     <form action="adduser.php" method="POST">
         <label for="imie">
