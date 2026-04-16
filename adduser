@@ -1,0 +1,21 @@
+<?php
+
+$polaczenie = mysqli_connect("localhost", "root", "", "xdxd");
+
+$imie = $_POST['imie'];
+$wiek = $_POST['wiek'];
+$zgoda = $_POST['zgoda'];
+
+echo "$imie, $wiek, $zgoda";
+
+if($zgoda == "on"){
+    $zgoda = 1;
+}else{
+    $zgoda = 0;
+}
+
+echo "$imie, $wiek, $zgoda";
+
+$sql = "INSERT INTO users VALUES (NULL, '$imie', $wiek, $zgoda)";
+
+mysqli_query($polaczenie, $sql);
