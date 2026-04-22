@@ -6,9 +6,16 @@
     <title>Document</title>
 </head>
 <body>
+<div class"container">
+<form action="removeuser2.php" method="POST">
+    <input type+"number" name="user_id" id="user_id" placeholder="Podaj ID użytkownika do usunięcia">
+    <button>Usuń użytkownika o ID</button>
+</form>
+
+<h1>Lista użytkowników</h1>
     <ol>
     <?php
-    $polaczenie = mysqli_connect("localhost", "root", "", "xdxd");
+    $polaczenie = mysqli_connect("localhost", "root", "", "projekt67");
 
     $sql = "SELECT * FROM users";
 
@@ -16,11 +23,20 @@
 
     while($wiersz = mysqli_fetch_assoc($wynik)){
         $imie = $wiersz['imie'];
-
-        echo "<li><h2>$imie</h2></li>";
+        $id = $wiersz['id'];
+ echo "
+ <li>
+ <h2>$imie</h2>
+ <form action ='removeuser.php' method='POST'>
+ <input type 'hidden' value=$id name'id'>
+ <button>Usuń</button>
+ </form>
+ </li>";
     }
     ?>
     </ol>
+
+    <div class"container">
 
     <form action="adduser.php" method="POST">
         <label for="imie">
