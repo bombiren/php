@@ -1,0 +1,113 @@
+<?php
+$name = $_POST["name"];
+$surname = $_POST["surname"];
+echo "$name $surname";
+?>
+<form action='../index.php'>
+    <button>Return</button>
+</form>
+
+<?php
+$name = $_POST["name"];
+$country = $_POST["country"];
+echo "$name $country";
+?>
+<form action='../index.php'>
+    <button>Return</button>
+</form>
+
+<?php
+$gender = $_POST["gender"];
+echo "$gender";
+?>
+<form action='../index.php'>
+    <button>Return</button>
+</form>
+<?php
+$name = strlen($_POST["name"]);
+$surname = isset($_POST["surname"]);
+$terms = empty($_POST["terms"]);
+if ($name > 3 && $surname && !$terms) {
+    echo "dobrze";
+} else {
+    echo "źle.";
+}
+?>
+<form action='../index.php'>
+    <button>Return</button>
+</form>
+
+<?php
+$conn = mysqli_connect("localhost", "root", "", "php_practice");
+$name = $_POST["first_name"];
+$surname = $_POST["last_name"];
+$email = $_POST["email"];
+$id = $_POST["student_index"];
+$sql = "INSERT INTO users (first_name, last_name, email, student_index, created_at) VALUES ('$name', '$surname', '$email', '$id', CURRENT_TIMESTAMP)";
+mysqli_query($conn, $sql);
+header("Location: ../index.php#p5");
+
+<?php
+$conn = mysqli_connect("localhost", "root", "", "php_practice");
+$uid = $_POST["user_id"];
+$title = $_POST["title"];
+$subject = $_POST["subject"];
+$description = $_POST["description"];
+$due_date = $_POST["due_date"];
+$status = $_POST["status"];
+if ($uid == "null") {
+    echo "ucznia nie ma";
+} else {
+    $sql = "INSERT INTO exercises (user_id, title, description, subject, due_date, status) VALUES ($uid, '$title', '$description', '$subject', '$due_date', '$status')";
+    mysqli_query($conn, $sql);
+    header("Location: ../index.php#p6");
+}
+
+<?php
+try {
+    if (isset($_GET["user_id"]) && $_GET["user_id"] != "null") {
+        $uid = $_GET["user_id"];
+        $sql = "SELECT * FROM exercises WHERE user_id = $uid";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) == 0) {
+            throw new Exception("Student doesn't have exercises in database.");
+        } else {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $desc = $row["description"];
+                $due = $row["due_date"];
+                $status = $row["status"];
+                $subject = $row["subject"];
+                $title = $row["title"];
+                echo "
+    <ul>
+        <li>Title: $title</li>
+        <li>Subject: $subject</li>
+        <li>Description: $desc</li>
+        <li>Status: $status</li>
+        <li>Due date: $due</li>
+    </ul>
+    ";
+            }
+        }
+    } else {
+        throw new Exception(
+            "Student does not exist in database or show button has not been clicked yet.",
+        );
+    }
+} catch (Exception $e) {
+    echo $e->getMessage();
+} finally {
+    echo "</br><p>Finished checking exercises.</p>";
+}
+?>
+
+
+<?php
+$conn = mysqli_connect("localhost", "root", "", "php_practice");
+$uid = $_POST["user_id"];
+$sql = "DELETE FROM exercises WHERE user_id = $uid";
+mysqli_query($conn, $sql);
+$sql = "DELETE FROM users WHERE id = $uid";
+mysqli_query($conn, $sql);
+header("Location: ../index.php#p8");
+
