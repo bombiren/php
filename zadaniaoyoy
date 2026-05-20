@@ -44,9 +44,6 @@ echo "Reszta z dzielenia: " . ($a % $b) . "<br>";
 ?>
 
 
-
-
-
 <?php
 
 $age =20;
@@ -109,3 +106,44 @@ if (isset($username)) {
 
 echo $username;
 ?>
+
+<?php
+
+for($i = 1; $i <= 10; $i++) {
+    echo $i . "<br>";
+}
+?>
+
+<?php
+
+$i = 2;
+
+while ($i <= 20) {
+    echo $i . "<br>";
+    $i += 2;
+}
+?>
+
+<?php
+
+$names = ["Kazimierz", "Ola", "Amelka", "Klaudia", "Marta"]
+
+foreach ($names as $name) {
+    echo $name . "<br>";
+}
+?>
+
+<?php
+
+$i = 1;
+
+do {
+    echo "To jest komunikat z pętli do-while<br>";
+} while ($i > 5);
+?>
+
+<?php
+
+$sum = 0;
+
+for ($i)
