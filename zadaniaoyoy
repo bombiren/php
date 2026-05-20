@@ -1,0 +1,62 @@
+<?php
+
+$age =20;
+
+if($age >=18) {
+    echo "Masz prawo do głosowania.";
+}
+?>
+
+<?php
+
+$temperature = -5;
+
+if($temperature < 0) {
+    echo "Temperatura jest ujemna";
+} elseif ($temperature > 0) {
+    echo "Temperatura jest dodatnia";
+} else {
+    echo "Temperatura wynosi zero";
+}
+?>
+
+<?php
+
+$color = "zielony";
+
+switch ($color) {
+    case "czerwony";
+    echo "czerwony";
+    break;
+
+    case "zielony";
+    echo "zielony";
+    break;
+
+    case "niebieski";
+    echo "niebieski";
+    break;
+
+    default:
+    echo "inny kolor";
+
+}
+?>
+
+<?php
+$grade =75;
+
+if ($grade >=50) {
+    echo "Zdany";
+} else {
+    echo "Niezdany";
+}
+?>
+
+<?php
+if (isset($username)) {
+    $username = "guest";
+}
+
+echo $username;
+?>
