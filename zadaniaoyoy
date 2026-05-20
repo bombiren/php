@@ -1,5 +1,54 @@
 <?php
 
+$name = "Maciek";
+$age = 67;
+$country = "Polska";
+
+echo "Nazywam się $name, mam $age lat i mieszkam w $country";
+?>
+
+<?php
+$width = 8
+$height = 5
+
+$wynik = $width * $height
+
+echo $wynik
+?>
+
+<?php
+
+$value = 10;
+$value = $value + 1;
+
+echo $value
+?>
+
+<?php
+
+$ismember = false;
+
+var_dump($ismember);
+
+?>
+
+<?php
+
+$a = 15;
+$b = 4;
+
+echo "Suma: " . ($a + $b) . "<br>";
+echo "Różnica: " . ($a - $b) . "<br>";
+echo "Iloczyn: " . ($a * $b) . "<br>";
+echo "Reszta z dzielenia: " . ($a % $b) . "<br>";
+?>
+
+
+
+
+
+<?php
+
 $age =20;
 
 if($age >=18) {
