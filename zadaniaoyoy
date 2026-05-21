@@ -170,3 +170,36 @@ print_r(array_keys($user));
 
 <?php
 
+function sayHello() {
+    return "Witaj";
+}
+
+echo sayHello();
+
+function multiply($a, $b) {
+    return $a * $b;
+}
+
+echo multiply(5,4);
+
+function isEven($n) {
+    return $n % 2== 0;
+}
+
+var_dump(isEven(8));
+
+function formatprice($price) {
+    return number_format($price, 2);
+}
+
+echo formatprice(25,5);
+
+function greetUser ($name, $age) {
+    return "Mam na imię $name i mam $age lat";
+}
+
+echo greetUser ("Maciek", 20);
+
+?>
+
+<?php
