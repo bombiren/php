@@ -1,0 +1,118 @@
+<?php
+
+function podziel($a, $b){
+    if($b == 0){
+        throw new Exception("Nie mozna dzielic przez 0 !!");
+    }
+    return $a / $b;
+}
+
+try{
+    echo "48 / 6 = " . podziel(48, 6) . "\n";
+    echo "120 / 5 = " . podziel(120, 5) . "\n";
+    echo "33 / 0 = " . podziel(33, 0) . "\n";
+}catch(Exception $e){
+    echo "Blad: " . $e->getMessage() . "\n";
+}
+
+echo "\n";
+
+echo "2. Sprawdzanie maili\n";
+
+function sprawdzEmail($imie, $mail){
+    if(strpos($mail, "@") === false){
+        throw new Exception("Brak @ w mailu");
+    }
+    return "git";
+}
+
+$osoby = [
+    ["Kazimierz", "kazimierz.nowak@gmail.com"],
+    ["Ola", "ola.kowalczyk@wp.pl"],
+    ["Amelka", "amelka.test.com"],
+    ["Klaudia", "klaudia.marta@interia.pl"],
+    ["Marta", "marta12345"],
+];
+
+foreach($osoby as $o){
+    echo $o[0] . " - " . $o[1] . " = ";
+    try{
+        sprawdzEmail($o[0], $o[1]);
+        echo "OK\n";
+    }catch(Exception $e){
+        echo "Blad: " . $e->getMessage() . "\n";
+    }
+}
+
+echo "\n";
+
+echo "3. Plik\n";
+
+try{
+    $plik = "dane.txt";
+    
+    if(!file_exists($plik)){
+        throw new Exception("Nie ma takiego pliku jak " . $plik);
+    }
+    echo "Plik otwarty\n";
+    
+}catch(Exception $e){
+    echo "Blad: " . $e->getMessage() . "\n";
+}finally{
+    echo "Koniec roboty z plikiem\n";
+}
+
+echo "\n";
+
+echo "4. Try catch finally\n";
+
+try{
+    echo "Sprawdzam dane...\n";
+    
+    $wiek = 16;
+    if($wiek < 18){
+        throw new Exception("Za mlody jestes!");
+    }
+    
+    echo "Wszystko ok\n";
+    
+}catch(Exception $e){
+    echo "Zlapalem blad: " . $e->getMessage() . "\n";
+}finally{
+    echo "Finally zawsze sie wykona\n";
+}
+
+echo "\n";
+
+echo "5. Wlasny wyjatek\n";
+
+class ZlyMail extends Exception{
+    public function __construct($imie, $mail){
+        parent::__construct("Zly mail u " . $imie . " -> " . $mail);
+    }
+}
+
+function dodajOsobe($imie, $mail){
+    if(strpos($mail, "@") === false){
+        throw new ZlyMail($imie, $mail);
+    }
+    echo $imie . " dodany\n";
+}
+
+$testy = [
+    ["Kazimierz", "kazimierz.nowak@gmail.com"],
+    ["Ola", "ola@test.pl"],
+    ["Amelka", "amelka.test.com"],
+    ["Klaudia", "klaudia123"],
+    ["Marta", "marta@szkola.pl"]
+];
+
+foreach($testy as $t){
+    try{
+        dodajOsobe($t[0], $t[1]);
+    }catch(ZlyMail $e){
+        echo "Blad: " . $e->getMessage() . "\n";
+    }
+}
+
+?>
