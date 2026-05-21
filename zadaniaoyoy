@@ -5,34 +5,26 @@ $age = 67;
 $country = "Polska";
 
 echo "Nazywam się $name, mam $age lat i mieszkam w $country";
-?>
 
-<?php
 $width = 8
 $height = 5
 
 $wynik = $width * $height
 
 echo $wynik
-?>
 
-<?php
 
 $value = 10;
 $value = $value + 1;
 
 echo $value
-?>
 
-<?php
 
 $ismember = false;
 
 var_dump($ismember);
 
-?>
 
-<?php
 
 $a = 15;
 $b = 4;
@@ -43,17 +35,13 @@ echo "Iloczyn: " . ($a * $b) . "<br>";
 echo "Reszta z dzielenia: " . ($a % $b) . "<br>";
 ?>
 
-
 <?php
-
 $age =20;
 
 if($age >=18) {
     echo "Masz prawo do głosowania.";
 }
-?>
 
-<?php
 
 $temperature = -5;
 
@@ -64,9 +52,9 @@ if($temperature < 0) {
 } else {
     echo "Temperatura wynosi zero";
 }
-?>
 
-<?php
+
+
 
 $color = "zielony";
 
@@ -87,9 +75,7 @@ switch ($color) {
     echo "inny kolor";
 
 }
-?>
 
-<?php
 $grade =75;
 
 if ($grade >=50) {
@@ -97,9 +83,7 @@ if ($grade >=50) {
 } else {
     echo "Niezdany";
 }
-?>
 
-<?php
 if (isset($username)) {
     $username = "guest";
 }
@@ -108,13 +92,10 @@ echo $username;
 ?>
 
 <?php
-
 for($i = 1; $i <= 10; $i++) {
     echo $i . "<br>";
 }
-?>
 
-<?php
 
 $i = 2;
 
@@ -122,28 +103,70 @@ while ($i <= 20) {
     echo $i . "<br>";
     $i += 2;
 }
-?>
 
-<?php
 
 $names = ["Kazimierz", "Ola", "Amelka", "Klaudia", "Marta"]
 
 foreach ($names as $name) {
     echo $name . "<br>";
 }
-?>
 
-<?php
+
+
 
 $i = 1;
 
 do {
     echo "To jest komunikat z pętli do-while<br>";
 } while ($i > 5);
+
+
+
+
+$sum = 0;
+
+for ($i = 1; $i <= 100; $i++) {
+    $sum += $i;
+}
+
+echo "Suma liczb od 1 do 100 wynosi: " . $sum;
 ?>
 
 <?php
 
-$sum = 0;
+$colors = ["czerwony", "zielony" , "niebieski"];
+echo $colors[0];
+echo "<br><br>";
 
-for ($i)
+$product = [
+    "name" => "Laptop",
+    "price" => 3500,
+    "in_stock" => true
+];
+
+print_r($product);
+
+$numbers = [1,2,3];
+array_push($numbers, 4);
+
+print_r($numbers);
+
+$fruits = ["jablko", "banan", "gruszka"];
+
+if(in_array("banan", $fruits)) {
+    echo "Banan znajduje się w tablicy";
+} else {
+    echo "Banan nie znajduje się w tablicy";
+}
+
+$user = [
+    "name" => "Maciek"
+    "age" => "67"
+    "email" => "Maciek@gmail.com"
+];
+
+print_r(array_keys($user));
+?>
+
+<?php
+
