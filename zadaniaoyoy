@@ -203,3 +203,36 @@ echo greetUser ("Maciek", 20);
 ?>
 
 <?php
+
+setcookie("username", "Maciek", time() + (7 * 24 * 60 * 60), "/");
+
+if(isset($_COOKIE["username"])) {
+
+}else {
+    echo "Ciasteczko username nie istnieje";
+}
+
+setcookie("bg_color", "lightblue", time() + 86400, "/");
+
+setcookie("session_id","",time() - 3600, "/");
+
+echo "<h3>Dostępne ciasteczka:";
+
+foreach($_COOKIE as $nazwa => $wartosc) {
+    echo $nazwa . "=" . $wartosc . "<br>";
+}
+
+
+?>
+
+<?php
+
+session_start();
+
+$_SESSION["user_id"] = 67;
+$_SESSION["username"] = Kazik;
+$_SESSION["email"] = kazik67@gmail.com;
+
+
+?>
+
