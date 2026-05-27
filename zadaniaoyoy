@@ -234,5 +234,26 @@ $_SESSION["username"] = Kazik;
 $_SESSION["email"] = kazik67@gmail.com;
 
 
-?>
+if(isset($_SESSION["id"])) {
+    echo "id: " . $_SESSION["id"] .;
+    echo "name: " . $_SESSION["name"] .;
+    echo "email: " . $_SESSION["email"] .;
+    echo "język: " . $_SESSION["język"] .;
+}else {
+    echo "Brak danych użytkownika"
+}
 
+unset($_SESSION["email"]);
+
+if(isset($_SESSION["email"])) {
+    echo $_SESSION["email"]
+}else {
+    echo "Email został usunięty";
+}
+
+session_destroy();
+
+$_SESSION["język"] = "pl";
+
+
+?>
