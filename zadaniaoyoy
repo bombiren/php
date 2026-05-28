@@ -257,3 +257,38 @@ $_SESSION["język"] = "pl";
 
 
 ?>
+
+<?php
+
+$a = 10;
+$b = 0;
+
+try{
+    if ($b == 0) {
+        throw new exception("nie mozna dzielic przez 0");
+    }
+    $wynik = $a / $b;
+    echo "Wynik" . $wynik;
+} catch (exception $e) {
+    echo "Błąd" . $e->getMessage();
+}
+
+function sprawdzanieEmail($email) {
+    if(strpos($email, "@")=== false) {
+        throw new exception("niepoprawny adres email");
+    }
+}
+try {
+    echo sprawdzEmail("oyoygmail.com");
+} catch (Exception $e) {
+    echo "Błąd" . $e->getMessage();
+}
+
+
+$plik = "dane.pdf";
+
+try{
+    if(!file_exists($plik)) {
+        throw new excpetion("plik nie istnieje");
+    }
+}
